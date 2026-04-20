@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base text-ink antialiased;
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+section {
+  position: relative;
+}
+
+/* Academic card style */
+.card {
+  @apply bg-surface rounded-card border border-border shadow-card;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  @apply shadow-card-hover;
+}
+
+/* Color strip top borders for section identity */
+.strip-space { border-top: 3px solid #3C5488; }
+.strip-deepsea { border-top: 3px solid #4DBBD5; }
+.strip-polar { border-top: 3px solid #00A087; }
+.strip-bio { border-top: 3px solid #E64B35; }
+
+/* Subtle section label with left bar */
+.section-label {
+  @apply flex items-center gap-2 text-xs font-medium uppercase tracking-wider;
+}
+
+.section-label::before {
+  content: '';
+  @apply block w-1 h-4 rounded-sm;
+}
+
+.section-label-space { color: #3C5488; }
+.section-label-space::before { background: #3C5488; }
+.section-label-deepsea { color: #3A9AB5; }
+.section-label-deepsea::before { background: #4DBBD5; }
+.section-label-polar { color: #00816C; }
+.section-label-polar::before { background: #00A087; }
+.section-label-bio { color: #C43D2B; }
+.section-label-bio::before { background: #E64B35; }
+
+/* Minimal data highlight for risk/stat numbers */
+.stat-number {
+  @apply text-3xl font-semibold tabular-nums;
+}
+
+/* Chart area subtle background */
+.chart-area {
+  @apply bg-surface rounded-card border border-border p-6;
+}
+
+/* Gentle fade-in for scroll reveal (no sci-fi scanner) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Depth indicator (for deepsea page - academic style) */
+.depth-indicator {
+  @apply flex items-center gap-3 text-sm;
+}
+
+.depth-indicator .dot {
+  @apply w-2 h-2 rounded-full;
+  background: #4DBBD5;
+}
